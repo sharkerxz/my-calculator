@@ -56,6 +56,20 @@
             updateDisplay();
         }
         
+        // Calculate percentage
+        function calculatePercentage() {
+            if (currentOperand === '') return;
+            
+            const current = parseFloat(currentOperand);
+            const result = current / 100;
+            
+            // Round result to avoid floating point precision issues
+            const roundedResult = Math.round(result * 1000000) / 1000000;
+            
+            currentOperand = roundedResult.toString();
+            updateDisplay();
+        }
+        
         // Calculate result
         function calculate() {
             let result;
@@ -148,6 +162,9 @@
                     case 'equals':
                         calculate();
                         break;
+                    case 'percentage':
+                        calculatePercentage();
+                        break;
                     default:
                         chooseOperation(action);
                         break;
@@ -181,6 +198,8 @@
             } else if (event.key === '/') {
                 event.preventDefault();
                 chooseOperation('divide');
+            } else if (event.key === '%') {
+                calculatePercentage();
             } else if (event.key === 'Enter' || event.key === '=') {
                 event.preventDefault();
                 calculate();
