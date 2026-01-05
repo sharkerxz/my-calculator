@@ -1,0 +1,201 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            padding: 20px;
+        }
+        
+        .calculator-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .calculator-header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calculator-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .display {
+            padding: 25px 20px;
+            text-align: right;
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+        
+        .previous-operand {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            min-height: 1.8rem;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        .current-operand {
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 600;
+            min-height: 3.5rem;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        button {
+            border: none;
+            padding: 20px 10px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        button:active {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(0.97);
+        }
+        
+        .operator {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .equals {
+            background: linear-gradient(to right, #ff7b54, #ff5e7d);
+            grid-column: span 2;
+        }
+        
+        .clear, .delete {
+            background-color: rgba(255, 99, 99, 0.7);
+        }
+        
+        .clear:hover, .delete:hover {
+            background-color: rgba(255, 99, 99, 0.9);
+        }
+        
+        /* Dark theme */
+        .dark-theme {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+        }
+        
+        .dark-theme .calculator-container {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .dark-theme button {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .dark-theme .operator {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive styles */
+        /* For tablet screens (720px and below) */
+        @media (max-width: 720px) {
+            .calculator-container {
+                max-width: 350px;
+            }
+            
+            .current-operand {
+                font-size: 2.2rem;
+            }
+            
+            button {
+                padding: 18px 8px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* For mobile screens (480px and below) */
+        @media (max-width: 480px) {
+            .calculator-container {
+                max-width: 300px;
+            }
+            
+            .calculator-header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .current-operand {
+                font-size: 1.9rem;
+                min-height: 3rem;
+            }
+            
+            .previous-operand {
+                font-size: 1rem;
+            }
+            
+            button {
+                padding: 15px 5px;
+                font-size: 1.1rem;
+            }
+            
+            .display {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .calculator-container {
+                max-width: 280px;
+            }
+            
+            button {
+                padding: 14px 4px;
+                font-size: 1rem;
+            }
+        }
+        
